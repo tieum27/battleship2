@@ -1,0 +1,57 @@
+/*battleship board display*/
+div#board {
+  position: relative;
+  width: 1024px;
+  height: 863px;
+  margin: auto;
+}
+
+table {
+  width: 40em;
+  height: 40em;
+  min-width: 300px;
+}
+
+tr {
+}
+
+td  {
+  height: 60px;
+  width: 60px;
+  border: 5px;
+  border-color: black;
+  border-style: solid;
+  padding: 0;
+}
+
+ #choice,
+ #fireButton {
+   margin-top: 2%;
+ }
+
+#user-input{
+  display: none;
+}
+
+#boardGame {
+  padding-top: 25px;
+  margin: 5% 0;
+  padding: 0;
+}
+
+#missilesUsed,
+#hits {
+  margin-left: 2%;
+}
+
+.miss {
+  background: url("../images/splash.png") no-repeat center center;
+}
+
+.hit {
+  background: url("../images/sailboat.png") no-repeat center center;
+}
+
+.user-input {
+  margin: 2% 0;
+}
