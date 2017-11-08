@@ -6,6 +6,10 @@ div#board {
   margin: auto;
 }
 
+header img {
+  margin-top 4%;
+}
+
 table {
   width: 40em;
   height: 40em;
