@@ -7,58 +7,65 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nomalize.css">
     <link rel="stylesheet" href="css/master.css">
 
   </head>
   <body>
-    <div class="container">
-      <header>
-        <img src="images\battleship_banner.png" alt="battleship banner image" />
+    <div>
+      <header role="banner">
+        <div id="titleBlock">
+          <p id="title">Battleship Game</p>
+        </div>
       </header>
       <!-- battleship message display -->
-      <div>
-        <h1 id="messageArea"></h1>
-      </div>
-      <div>
+      <div class="container">
+        <div id="rules">
+          <h3>Hello</h3>
+            <p>
+              This is a simple game. All you need is to sink  5 ships.<br />
+              The ships have different lengths (5, 4, 3, 3, 2).<br />
+              That's all ! Have a nice game.
+            </p>
+        </div>
+
         <div id="choice">
-          <h4>
-            Hello, would you like to click on the cell (type: 1) or enter the coordinates (type: 2) ?<br />
-            Click on submit to enter the game!!
-          </h4>
+          <p>
+            What would you like:<br />
+            <ol>
+              <li>To click on the cells (type: 1)</li>
+              <li>Enter the coordinates (type: 2)</li>
+            </ol>
+            <strong>Click on submit to enter the game!!</strong>
+          </p>
           <form id="user-choice">
-              <input type="text" id="guessChoice" placeholder="Type 1 or 2" autofocus class="form-control">
-              <input type="button" id="choice" value="submit" class="btn" onclick="launchBattleship()">
+            <input type="text" id="guessChoice" placeholder="Type 1 or 2" autofocus class="form-control">
+            <input type="button" id="btnchoice" value="submit" class="btn" onclick="launchBattleship()">
           </form>
         </div>
 
         <!-- battleship user inputs -->
-        <div>
-          <form id="user-input">
-              <input type="text" id="guessInput" placeholder="A0" autofocus class="form-control">
-              <input type="button" id="fireButton" value="Fire!" class="btn btn-danger" onclick="launchBattleship()">
+        <div id="user-input">
+          <form>
+            <input type="text" id="guessInput" placeholder="A0" autofocus class="form-control">
+            <input type="button" id="fireButton" value="Fire!" class="btn btn-danger">
           </form>
         </div>
+
+        <div id="messages">
+          <h3>Stats</h3>
+          <div id="messageArea"></div>
+          <div id="totalGuess"></div>
+          <div id="sankShip"></div>
+          <button id="btnReplay" type="button" name="replay" onclick="replay()">Replay</button>
+          <div class="clear-both"></div>
+        </div>
       </div>
-      <div id="board" class="row">
+
+
+      <section id="board">
         <!-- <div class="col"> -->
-          <div  id="boardGame" class="col-sm-12"></div>
-        <!-- </div> -->
-        <!-- <div class="col">
-          <div class="row">
-            <div>Torpedoes Used: </div>
-            <div id="missilesUsed"></div>
-          </div>
-          <div class="row">
-            <div>Torpedoes left: </div>
-            <div id="torpedoes"></div>
-          </div>
-          <div class="row">
-            <div>Hits: </div>
-            <div id="hits"></div>
-          </div>
-        </div> -->
-      </div>
+      </section>
     </div>
   </div>
     <script type="text/javascript" src="js/battleship.js"></script>

@@ -1,5 +1,6 @@
 // JavaScript Model
 var model = {
+    choice: 0,
     boardSize: 10,
     numShips: 5,
     shipLength: [5, 4, 3, 3, 2],
@@ -26,18 +27,24 @@ var model = {
 			} else if ( index >= 0 ) {
 				ship.hits[index] = "hit";
 				view.displayHit(guess);
+        document.getElementById("messageArea").style.color = "red";
 				view.displayMessage("HIT!");
+        view.displayGuess ("Total Guesses: " +  controller.guesses);
 
 				if ( this.isSunk(ship) ) {
+          document.getElementById("messageArea").style.color = "red";
 					view.displayMessage("You sank my battleship!");
 					this.shipsSunk++;
+          view.displayShips ("Total Sunk Ships: " + model.shipsSunk);
 				}
 				return true;
 			}
 			$('#guessInput').focus();
 		}
 		view.displayMiss(guess);
+    document.getElementById("messageArea").style.color = "green";
 		view.displayMessage("You Missed");
+    view.displayGuess ("Total Guesses: " +  controller.guesses);
 		return false;
 	},
 
@@ -102,8 +109,18 @@ var model = {
 var view = {
   boardSize: 10,
 
+  displayGuess: function(msgGuess) {
+  var totalGuess = document.getElementById("totalGuess");
+  totalGuess.innerHTML = msgGuess;
+  },
+
+  displayShips: function(msgShips) {
+    var sankShip = document.getElementById("sankShip");
+    sankShip.innerHTML = msgShips;
+  },
+
   displayTable: function() {
-    $("#boardGame").append("<table id='boardTable'></table>");
+    $("#board").append("<table id='boardTable'></table>");
     for (var i = 0; i < this.boardSize; i++) {
       $("#boardTable").append("<tr id="
       + i + " class='boardRow'></tr>");
@@ -132,7 +149,13 @@ var controller = {
 	guesses: 0,
 
 	processGuess: function(guess) {
-		var location = guess;
+    var location
+    if (model.choice.value == 2) {
+      location = parseGuess(guess);
+    }
+    else {
+      location = guess;
+    }
 		if (location) {
 			this.guesses++;
 			var hit = model.fire(location);
@@ -185,16 +208,22 @@ function handleKeyPress(e) {
 }
 
 function launchBattleship(){
-	var choice = document.getElementById("guessChoice");
-  var choiceInt = parseInt(choice.value)
+	model.choice = document.getElementById("guessChoice");
+  var choiceInt = parseInt(model.choice.value)
 	switch (choiceInt) {
     case 1:
       $("#choice").toggle();
+      $("#messages").toggle();
+      $("#btnReplay").toggle();
+      $("#rules").toggle();
       init1();
       break;
     case 2:
       $("#choice").toggle();
+      $("#messages").toggle();
       $("#user-input").toggle();
+      $("#btnReplay").toggle();
+      $("#rules").toggle();
       init2();
       break;
     default:
@@ -204,10 +233,13 @@ function launchBattleship(){
 
 function init1() {
   view.displayTable();
+  view.displayMessage("Good Hunting!");
+  view.displayShips ("Total Sunk Ships: " + model.shipsSunk);
+  view.displayGuess ("Total Guesses: " +  controller.guesses);
+
 	// place the ships on the game board
 	model.generateShipLocations();
 	$("td").on("click",function(){
-		console.log("HIT td click");
 		// Check to see if the cell has already been targeted if true disable click
 		if ($(this).hasClass("miss")) {
 			$(this).off("click");
@@ -226,6 +258,10 @@ function init1() {
 
 function init2() {
   view.displayTable();
+  view.displayMessage("Good Hunting!");
+  view.displayShips ("Total Sunk Ships: " + model.shipsSunk);
+  view.displayGuess ("Total Guesses: " +  controller.guesses);
+
 	// Fire! button onclick handler
 	var fireButton = document.getElementById("fireButton");
 	fireButton.onclick = handleFireButton;
@@ -234,4 +270,9 @@ function init2() {
 	guessInput.onkeypress = handleKeyPress;
 	// place the ships on the game board
 	model.generateShipLocations();
-}
+};
+
+function replay() {
+	 model.generateShipLocations();
+	 window.location.reload();
+};

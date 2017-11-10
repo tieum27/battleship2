@@ -1,52 +1,88 @@
-/*battleship board display*/
-div#board {
-  position: relative;
-  width: 1024px;
-  height: 863px;
-  margin: auto;
+body {
+width: 98.9583%;/*1900px*/
+max-width: 1920px;
+max-height: 1080px;
+min-width: 800px;
+margin: 0.6% 0.520833%;
+font-size: medium;
+line-height: 135%;
 }
 
-header img {
-  margin-top 4%;
+
+
+
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: baseline;
+}
+
+#titleBlock{
+		text-align: center;
+}
+
+#title {
+	color: #009de4;
+	display: inline-block;
+	margin: auto;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	font-size: 36px;
+	font-style: italic;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px rgba(146, 148, 150, 1);
+}
+
+#rules,
+#messages,
+#choice,
+#user-input {
+	width: 300px;
+	height: 100%;
+	padding: 1em;
+	margin-top:43px;
+	margin-right: 4em;
+	margin-left: 4em;
+	border:1px solid #009de4;
+	border-radius: 3px;
+	webkit-box-shadow: 6px 6px 19px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 6px 6px 19px 0px rgba(0,0,0,0.75);
+	box-shadow: 6px 6px 19px 0px rgba(0,0,0,0.75);
+}
+
+#messages,
+#user-input,
+#btnReplay {
+	display: none;
+}
+
+#user-input {
+	order: 2;
+}
+
+#messageArea {
+	color: rgb(83, 175, 19);
+	text-align: center;
+	padding: 2.5px 5px;
+	font-size: 36px;
+	line-height: 1em;
 }
 
 table {
-  width: 40em;
-  height: 40em;
-  min-width: 300px;
+	position: relative;
+	border-spacing: 0px;
+	top: 42px;
+	left: 87px;
+	cursor : url("../images/gun-pointer.png"), default;
+}
+td {
+	width: 66px;
+	height: 66px;
+	border: 1px solid #009de4;
 }
 
-tr {
-}
-
-td  {
-  height: 60px;
-  width: 60px;
-  border: 5px;
-  border-color: black;
-  border-style: solid;
-  padding: 0;
-}
-
- #choice,
- #fireButton {
-   margin-top: 2%;
- }
-
-#user-input{
-  display: none;
-}
-
-#boardGame {
-  padding-top: 25px;
-  margin: 5% 0;
-  padding: 0;
-}
-
-#missilesUsed,
-#hits {
-  margin-left: 2%;
-}
 
 .miss {
   background: url("../images/splash.png") no-repeat center center;
@@ -54,8 +90,4 @@ td  {
 
 .hit {
   background: url("../images/sailboat.png") no-repeat center center;
-}
-
-.user-input {
-  margin: 2% 0;
 }
