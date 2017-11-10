@@ -70,6 +70,17 @@ line-height: 135%;
 	line-height: 1em;
 }
 
+#board {
+	float:right;
+	display: block;
+	width: 800px;
+	height: 800px;
+	margin-right: 8%;
+	margin-left: 1%;
+	background-image: url("../images/board.png");
+	display: none;
+}
+
 table {
 	position: relative;
 	border-spacing: 0px;
@@ -82,7 +93,6 @@ td {
 	height: 66px;
 	border: 1px solid #009de4;
 }
-
 
 .miss {
   background: url("../images/splash.png") no-repeat center center;

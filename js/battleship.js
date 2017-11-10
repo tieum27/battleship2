@@ -216,6 +216,7 @@ function launchBattleship(){
       $("#messages").toggle();
       $("#btnReplay").toggle();
       $("#rules").toggle();
+      $("#board").toggle();
       init1();
       break;
     case 2:
@@ -224,6 +225,7 @@ function launchBattleship(){
       $("#user-input").toggle();
       $("#btnReplay").toggle();
       $("#rules").toggle();
+      $("#board").toggle();
       init2();
       break;
     default:
