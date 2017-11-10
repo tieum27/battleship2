@@ -101,3 +101,56 @@ td {
 .hit {
   background: url("../images/sailboat.png") no-repeat center center;
 }
+
+@media only screen and (max-width : 1690px) {
+	#board {
+		margin:0 25%;
+	}
+}
+
+@media only screen and (max-width : 1450px) {
+	#board {
+		margin-right: 21%;
+	}
+}
+
+@media only screen and (max-width : 1350px) {
+	#board {
+		margin-right: 18%;
+	}
+}
+@media only screen and (max-width : 1250px) {
+	#board {
+		margin-right: 15%;
+	}
+}
+
+@media only screen and (max-width : 1050px) {
+	#board {
+		margin-right: 10%;
+	}
+
+	#messages {
+		margin:0 1%;
+	}
+}
+
+@media only screen and (max-width : 993px) {
+	#messages {
+		float: none;
+		margin: auto;
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (max-width : 910px) {
+	#board {
+		margin-right: 4%;
+	}
+}
+
+@media only screen and (max-width : 800px) {
+	#board {
+		margin-right: 1%;
+	}
+}
